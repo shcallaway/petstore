@@ -1,8 +1,8 @@
 /* This file was auto-generated. Do not edit it directly. */
 
-import { z } from 'zod';
-
 /* ZOD SCHEMAS */
+
+import { z } from 'zod';
 
 export const PetSchema = z.object({ "id": z.number().describe("The ID of the pet"), "name": z.string().optional().nullable().default("Fluffy").describe("The name of the pet"), "species": z.lazy(() => SpeciesSchema).default("cat"), "owner_id": z.number().describe("The ID of the owner") }).strict();
 
@@ -108,19 +108,22 @@ export type PatchPetsIdPathParams = z.infer<typeof PatchPetsIdPathParamsSchema>;
 
 /* SERVER */
 
-export type Request<
+import { Request as ExpressRequest } from 'express';
+
+export interface Request<
   Body,
   PathParams extends Record<string, any>,
   QueryParams extends Record<string, any>
-> = {
+> extends ExpressRequest{
   body: Body;
-  pathParams: PathParams;
-  queryParams: QueryParams;
+  params: PathParams;
+  query: QueryParams;
 };
 
 export type Response<Body> = {
-  status: 200 | 404;
+  status: 200 | 404 | 301 | 302;
   body?: Body;
+  headers?: Record<string, string>
 };
 
 export interface Handler<

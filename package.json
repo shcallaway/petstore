@@ -19,7 +19,7 @@
   "author": "Sherwood Callaway",
   "license": "MIT",
   "devDependencies": {
-    "@shcallaway/openapi-zod": "^1.0.3",
+    "@shcallaway/openapi-zod": "^1.0.6",
     "@types/express": "^5.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.5.0",
