@@ -17,11 +17,21 @@ import {
   PetSchema,
 } from "./generated/openApi";
 
+import { addLogger } from "./middleware/addLogger";
+
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+// Middleware to add logger to request
+app.use(addLogger);
 
 // Set content-type header for all responses
 app.use((req, res, next) => {
@@ -29,14 +39,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
 // Log request method and path for all routes
 app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
+  req.logger!.info(`${req.method} ${req.path}`);
   next();
 });
 

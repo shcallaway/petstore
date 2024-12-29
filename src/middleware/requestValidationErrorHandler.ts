@@ -9,8 +9,8 @@ export const requestValidationErrorHandler = (
   next: NextFunction
 ) => {
   if (err instanceof RequestValidationError) {
-    console.log("A request validation error occurred");
-    console.log("Responding with status 400");
+    req.logger!.info("A request validation error occurred");
+    req.logger!.info("Responding with status 400");
     res.sendStatus(400);
     return;
   }

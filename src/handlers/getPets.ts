@@ -1,6 +1,8 @@
 import { getPetsHandler } from "../generated/openApi";
 
 export const getPets: getPetsHandler = async (req) => {
+  req.logger!.info("Getting pets");
+
   return {
     status: 200,
     body: {

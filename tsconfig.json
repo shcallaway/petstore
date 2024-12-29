@@ -10,6 +10,9 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext"
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*.ts",
+    "custom.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

@@ -6,7 +6,7 @@ export const defaultErrorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  console.log("An unexpected error occurred");
-  console.log("Responding with status 500");
+  req.logger!.info("An unexpected error occurred");
+  req.logger!.info("Responding with status 500");
   res.sendStatus(500);
 };

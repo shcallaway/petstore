@@ -9,8 +9,8 @@ export const responseValidationErrorHandler = (
   next: NextFunction
 ) => {
   if (err instanceof ResponseValidationError) {
-    console.log("A response validation error occurred");
-    console.log("Responding with status 500");
+    req.logger!.info("A response validation error occurred");
+    req.logger!.info("Responding with status 500");
     res.sendStatus(500);
     return;
   }

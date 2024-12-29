@@ -12,12 +12,14 @@
     "clean": "rm -rf dist",
     "build": "pnpm tsc",
     "dev": "pnpm clean && pnpm build && pnpm start",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "generate": "pnpm openapi-zod --schema ./openapi.yaml --output ./src/generated/openApi.ts"
   },
   "keywords": [],
   "author": "Sherwood Callaway",
   "license": "MIT",
   "devDependencies": {
+    "@shcallaway/openapi-zod": "^1.0.3",
     "@types/express": "^5.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.5.0",

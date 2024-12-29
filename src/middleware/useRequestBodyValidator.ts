@@ -4,25 +4,25 @@ import { RequestValidationError } from "../lib/types";
 
 export const useRequestBodyValidator = (zodSchema: z.ZodType<any>) => {
   return (req: Request, res: Response, next: NextFunction) => {
-    console.log("Validating request body");
+    req.logger!.info("Validating request body");
 
     const body = req.body;
 
-    console.log("Body:", body);
+    req.logger!.info("Body:", body);
 
     if (!body) {
-      console.log("No body found");
+      req.logger!.info("No body found");
       throw new RequestValidationError();
     }
 
     const result = zodSchema.safeParse(body);
 
     if (!result.success) {
-      console.log("Request body is invalid");
+      req.logger!.info("Request body is invalid");
       throw new RequestValidationError();
     }
 
-    console.log("Request body is valid");
+    req.logger!.info("Request body is valid");
 
     next();
   };

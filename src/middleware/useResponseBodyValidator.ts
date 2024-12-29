@@ -14,22 +14,22 @@ import { ResponseValidationError } from "../lib/types";
 
 export const useResponseBodyValidator = (zodSchema: z.ZodType<any>) => {
   return (req: Request, res: Response, next: NextFunction) => {
-    console.log("Validating response body");
+    req.logger!.info("Validating response body");
 
     const { body } = res.locals;
 
     if (!body) {
-      console.log("No response body found");
+      req.logger!.info("No response body found");
     }
 
     const result = zodSchema.safeParse(body);
 
     if (!result.success) {
-      console.log("Response body is invalid");
+      req.logger!.info("Response body is invalid");
       throw new ResponseValidationError();
     }
 
-    console.log("Response body is valid");
+    req.logger!.info("Response body is valid");
 
     next();
   };

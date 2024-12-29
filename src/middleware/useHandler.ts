@@ -12,11 +12,11 @@ export const useHandler = <
 ) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      console.log(`Using handler ${handler.name}`);
+      req.logger!.info(`Using handler ${handler.name}`);
 
       const { status, body } = await handler(req as any);
 
-      console.log(`Handler ${handler.name} returned status ${status}`);
+      req.logger!.info(`Handler ${handler.name} returned status ${status}`);
 
       res.locals.status = status;
       res.locals.body = body;
