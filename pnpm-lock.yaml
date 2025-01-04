@@ -19,8 +19,8 @@ importers:
         version: 3.24.1
     devDependencies:
       '@shcallaway/openapi-zod':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.0.12
+        version: 1.0.12
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.0
@@ -36,8 +36,8 @@ importers:
 
 packages:
 
-  '@shcallaway/openapi-zod@1.0.6':
-    resolution: {integrity: sha512-2+8V+/JFXb1BinWDm5ZCNh1fYtiNMXFe2U+ZkCkgj/quEMGZ/U36AYvxW41dZxeSIT2bbth9Df5n6oE0YBQmEQ==}
+  '@shcallaway/openapi-zod@1.0.12':
+    resolution: {integrity: sha512-whq5D3dIT9xJH7kHH0h1ErExdhWcdJkIwykoLhGGixLtJxlhOgRSMQb8Y0WJcG0U0EMn9pwee7bhmsPrRh30NA==}
     engines: {node: '>=20.0.0'}
     hasBin: true
 
@@ -423,7 +423,7 @@ packages:
 
 snapshots:
 
-  '@shcallaway/openapi-zod@1.0.6':
+  '@shcallaway/openapi-zod@1.0.12':
     dependencies:
       js-yaml: 4.1.0
       yargs: 17.7.2

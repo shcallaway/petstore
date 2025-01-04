@@ -19,7 +19,7 @@ export const getPets: getPetsHandler = async (req) => {
           species: "dog",
           owner_id: 1,
           // Uncomment this to trigger runtime validation error
-          color: "brown",
+          // color: "brown",
         },
       ],
       count: 2,
